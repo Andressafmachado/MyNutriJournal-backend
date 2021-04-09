@@ -11,6 +11,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       doctor.hasMany(models.user);
       doctor.hasMany(models.task);
+      doctor.hasMany(models.comments);
     }
   }
   doctor.init(
