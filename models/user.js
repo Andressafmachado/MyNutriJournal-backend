@@ -20,6 +20,8 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "patientId",
         as: "doctor",
       });
+      user.hasMany(models.task);
+      user.hasMany(models.comments);
     }
   }
   user.init(
