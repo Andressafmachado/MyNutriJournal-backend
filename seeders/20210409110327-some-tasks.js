@@ -15,7 +15,9 @@ module.exports = {
         },
         {
           name: "walk",
+          userId: 1,
           doctorId: 1,
+
           createdAt: new Date(),
           updatedAt: new Date(),
         },
