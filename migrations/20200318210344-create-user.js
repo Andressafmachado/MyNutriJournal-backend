@@ -21,6 +21,24 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      isNutritionist: {
+        type: Sequelize.BOOLEAN,
+      },
+      age: {
+        type: Sequelize.INTEGER,
+      },
+      height: {
+        type: Sequelize.STRING,
+      },
+      weight: {
+        type: Sequelize.INTEGER,
+      },
+      gender: {
+        type: Sequelize.STRING,
+      },
+      exerciseDaily: {
+        type: Sequelize.STRING,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
