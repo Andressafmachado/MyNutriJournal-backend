@@ -9,12 +9,13 @@ module.exports = {
         {
           name: "run",
           userId: 2,
+          doctorId: 2,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           name: "walk",
-          userId: 3,
+          doctorId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

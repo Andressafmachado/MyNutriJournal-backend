@@ -9,6 +9,7 @@ module.exports = {
         {
           content: "good morning",
           userId: 2,
+
           createdAt: new Date(),
           updatedAt: new Date(),
         },

@@ -1,20 +1,26 @@
 "use strict";
+const bcrypt = require("bcrypt");
+
 const { SALT_ROUNDS } = require("../config/constants");
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.bulkInsert(
-      "doctorpatients",
+      "doctors",
       [
         {
-          doctorId: 1,
-          patientId: 2,
+          name: "nutri",
+          email: "1@1.com",
+          password: bcrypt.hashSync("123", SALT_ROUNDS),
+
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          doctorId: 1,
-          patientId: 3,
+          name: "doc",
+          email: "adoc@a.com",
+          password: bcrypt.hashSync("a", SALT_ROUNDS),
+
           createdAt: new Date(),
           updatedAt: new Date(),
         },
@@ -24,6 +30,6 @@ module.exports = {
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.bulkDelete("doctorpatients", null, {});
+    await queryInterface.bulkDelete("doctors", null, {});
   },
 };
