@@ -15,6 +15,7 @@ module.exports = (sequelize, DataTypes) => {
       user.hasMany(models.comments);
       user.belongsTo(models.doctor);
       user.hasMany(models.food);
+      user.hasMany(models.completedTask);
     }
   }
   user.init(
