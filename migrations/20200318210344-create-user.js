@@ -24,19 +24,25 @@ module.exports = {
 
       age: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       height: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       weight: {
         type: Sequelize.INTEGER,
+        allowNull: false,
       },
       gender: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       exerciseDaily: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
+
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,

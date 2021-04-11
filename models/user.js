@@ -14,6 +14,7 @@ module.exports = (sequelize, DataTypes) => {
       user.hasMany(models.task);
       user.hasMany(models.comments);
       user.belongsTo(models.doctor);
+      user.hasMany(models.food);
     }
   }
   user.init(
@@ -34,19 +35,24 @@ module.exports = (sequelize, DataTypes) => {
 
       age: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
 
       height: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       weight: {
         type: DataTypes.INTEGER,
+        allowNull: false,
       },
       gender: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
       exerciseDaily: {
         type: DataTypes.STRING,
+        allowNull: false,
       },
     },
     {
