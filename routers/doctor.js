@@ -23,7 +23,14 @@ router.get("/:doctorId", async (req, res) => {
   try {
     const doctorId = parseInt(req.params.doctorId);
     const doctor = await Doctor.findByPk(doctorId, {
-      include: [{ model: User }, { model: Comments }, { model: Task }],
+      include: [
+        {
+          model: User,
+          //attributes: ["name"]
+        },
+        { model: Comments },
+        { model: Task },
+      ],
     });
 
     if (!doctor) {

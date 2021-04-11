@@ -2,6 +2,7 @@ const express = require("express");
 const User = require("../models").user;
 const Task = require("../models").task;
 const Comments = require("../models").comments;
+const Food = require("../models").food;
 
 const { Router } = express;
 
@@ -23,7 +24,7 @@ router.get("/:userId", async (req, res) => {
   try {
     const userId = parseInt(req.params.userId);
     const user = await User.findByPk(userId, {
-      include: [{ model: Comments }, { model: Task }],
+      include: [{ model: Comments }, { model: Task }, { model: Food }],
     });
 
     if (!user) {
