@@ -77,6 +77,7 @@ router.post("/signup", async (req, res) => {
     gender,
     exerciseDaily,
     doctorId,
+    image,
   } = req.body;
   if (
     !email ||
@@ -91,6 +92,18 @@ router.post("/signup", async (req, res) => {
     return res.status(400).send("Please fill the entire form!");
   }
 
+  if (age < 20) {
+    return res
+      .status(400)
+      .send("Sorry, this app was designed to be used by people older than 20!");
+  }
+
+  if (weight < 30 || weight > 300) {
+    return res
+      .status(400)
+      .send("Please, for weight provide a number between 30 and 300kg");
+  }
+
   try {
     const newUser = await User.create({
       email,
@@ -102,8 +115,9 @@ router.post("/signup", async (req, res) => {
       gender,
       exerciseDaily,
       doctorId,
+      image,
     });
-
+    console.log("newUser", newUser);
     delete newUser.dataValues["password"]; // don't send back the password hash
 
     const token = toJWT({ userId: newUser.id });
