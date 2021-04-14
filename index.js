@@ -7,6 +7,7 @@ const userRouter = require("./routers/user");
 const doctorRouter = require("./routers/doctor");
 const foodRouter = require("./routers/food");
 const taskRouter = require("./routers/task");
+const commentsRouter = require("./routers/comments");
 const completedTaskRouter = require("./routers/completedTask");
 const authMiddleWare = require("./auth/middleware");
 
@@ -161,6 +162,7 @@ app.use("/doctors", doctorRouter);
 app.use("/", foodRouter);
 app.use("/", taskRouter);
 app.use("/", completedTaskRouter);
+app.use("/", commentsRouter);
 
 // Listen for connections on specified port (default is port 4000)
 
