@@ -19,15 +19,15 @@ router.get("/comments", async (req, res, next) => {
 
 //adding new comment
 router.post("/comments", async (req, res) => {
-  const { name, content, doctorId, userId } = req.body;
-  if (!name || !content || !doctorId || !userId) {
+  const { content, name, doctorId, userId } = req.body;
+  if (!name || !content || !userId) {
     return res.status(400).send("Please try again");
   }
 
   try {
     const newComment = await Comments.create({
-      name,
       content,
+      name,
       doctorId,
       userId,
     });

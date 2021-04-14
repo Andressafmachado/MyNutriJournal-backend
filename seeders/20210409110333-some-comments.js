@@ -9,7 +9,7 @@ module.exports = {
         {
           name: "Ana",
           content: "good morning",
-          userId: 1,
+          userId: 3,
           doctorId: 1,
           createdAt: "2021-04-10T09:03:25.881Z",
           updatedAt: new Date(),
@@ -17,7 +17,7 @@ module.exports = {
         {
           name: "Ana",
           content: "you got this",
-          userId: 1,
+          userId: 3,
           doctorId: 1,
           createdAt: "2021-04-11T09:03:25.881Z",
           updatedAt: new Date(),
@@ -25,8 +25,8 @@ module.exports = {
         {
           name: "Ana",
           content: "just do it",
+          userId: 3,
           doctorId: 1,
-          userId: 1,
           createdAt: "2021-04-09T09:03:25.881Z",
           updatedAt: new Date(),
         },
