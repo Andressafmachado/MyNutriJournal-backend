@@ -9,18 +9,22 @@ module.exports = {
       "doctors",
       [
         {
-          name: "nutri",
+          name: "Ana Jhonson",
           email: "1@1.com",
           password: bcrypt.hashSync("123", SALT_ROUNDS),
-
+          image:
+            "https://drturnersnutrition.com/wp-content/uploads/2019/07/diet_service_img-1.jpg",
+          isDoctor: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
-          name: "doc",
-          email: "adoc@a.com",
+          name: "Natalie Brady",
+          email: "natalie@gmail.com",
           password: bcrypt.hashSync("a", SALT_ROUNDS),
-
+          image:
+            "https://www.nataliebrady.co.nz/wp-content/uploads/2020/02/Auckland-nutritionist.jpg",
+          isDoctor: true,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

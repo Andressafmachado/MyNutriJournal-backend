@@ -9,7 +9,25 @@ module.exports = {
         {
           name: "run",
           userId: 3,
-          createdAt: new Date(),
+          createdAt: "2021-04-11T09:03:25.881Z",
+          updatedAt: new Date(),
+        },
+        {
+          name: "run",
+          userId: 3,
+          createdAt: "2021-04-12T09:03:25.881Z",
+          updatedAt: new Date(),
+        },
+        {
+          name: "walk",
+          userId: 3,
+          createdAt: "2021-04-11T09:03:25.881Z",
+          updatedAt: new Date(),
+        },
+        {
+          name: "walk",
+          userId: 1,
+          createdAt: "2021-04-10T09:03:25.881Z",
           updatedAt: new Date(),
         },
       ],

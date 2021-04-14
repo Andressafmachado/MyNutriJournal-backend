@@ -7,22 +7,27 @@ module.exports = {
       "comments",
       [
         {
+          name: "Ana",
           content: "good morning",
-          userId: 2,
-
-          createdAt: new Date(),
+          userId: 1,
+          doctorId: 1,
+          createdAt: "2021-04-10T09:03:25.881Z",
           updatedAt: new Date(),
         },
         {
+          name: "Ana",
           content: "you got this",
           userId: 1,
-          createdAt: new Date(),
+          doctorId: 1,
+          createdAt: "2021-04-11T09:03:25.881Z",
           updatedAt: new Date(),
         },
         {
+          name: "Ana",
           content: "just do it",
           doctorId: 1,
-          createdAt: new Date(),
+          userId: 1,
+          createdAt: "2021-04-09T09:03:25.881Z",
           updatedAt: new Date(),
         },
       ],
