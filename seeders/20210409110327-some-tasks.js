@@ -8,16 +8,22 @@ module.exports = {
       [
         {
           name: "run",
-          userId: 2,
-          doctorId: 2,
+          userId: 3,
+          doctorId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },
         {
           name: "walk",
-          userId: 1,
+          userId: 3,
           doctorId: 1,
-
+          createdAt: new Date(),
+          updatedAt: new Date(),
+        },
+        {
+          name: "daily fruit",
+          userId: 3,
+          doctorId: 1,
           createdAt: new Date(),
           updatedAt: new Date(),
         },

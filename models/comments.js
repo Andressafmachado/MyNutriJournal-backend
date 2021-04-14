@@ -15,7 +15,13 @@ module.exports = (sequelize, DataTypes) => {
   }
   comments.init(
     {
-      content: DataTypes.TEXT,
+      name: {
+        type: DataTypes.STRING,
+      },
+
+      content: {
+        type: DataTypes.STRING,
+      },
     },
     {
       sequelize,

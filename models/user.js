@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
       },
 
       height: {
-        type: DataTypes.STRING,
+        type: DataTypes.FLOAT,
         allowNull: false,
       },
       weight: {
@@ -54,6 +54,9 @@ module.exports = (sequelize, DataTypes) => {
       exerciseDaily: {
         type: DataTypes.STRING,
         allowNull: false,
+      },
+      image: {
+        type: DataTypes.TEXT,
       },
     },
     {

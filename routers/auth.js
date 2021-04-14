@@ -5,6 +5,7 @@ const authMiddleware = require("../auth/middleware");
 const User = require("../models/").user;
 const Doctor = require("../models/").doctor;
 const { SALT_ROUNDS } = require("../config/constants");
+const doctorAuthMiddleware = require("../auth/middlewareDoctor");
 
 const router = new Router();
 
@@ -35,6 +36,36 @@ router.post("/login", async (req, res, next) => {
   }
 });
 
+//doctor login
+router.post("/logindoctor", async (req, res, next) => {
+  try {
+    const { email, password } = req.body;
+
+    if (!email || !password) {
+      return res
+        .status(400)
+        .send({ message: "Please provide both email and password" });
+    }
+
+    const doctor = await Doctor.findOne({ where: { email } });
+
+    if (!doctor || !bcrypt.compareSync(password, doctor.password)) {
+      return res.status(400).send({
+        message: "User with that email not found or password incorrect",
+      });
+    }
+
+    delete doctor.dataValues["password"]; // don't send back the password hash
+    //SOLVE PROBLEM HERE
+    const token = toJWT({ doctorId: doctor.id });
+    return res.status(200).send({ token, ...doctor.dataValues });
+  } catch (error) {
+    console.log(error);
+    return res.status(400).send({ message: "Something went wrong, sorry" });
+  }
+});
+
+//signup as user
 router.post("/signup", async (req, res) => {
   const {
     email,
@@ -45,9 +76,32 @@ router.post("/signup", async (req, res) => {
     weight,
     gender,
     exerciseDaily,
+    doctorId,
+    image,
   } = req.body;
-  if (!email || !password || !name) {
-    return res.status(400).send("Please provide an email, password and a name");
+  if (
+    !email ||
+    !password ||
+    !name ||
+    !age ||
+    !height ||
+    !weight ||
+    !gender ||
+    !exerciseDaily
+  ) {
+    return res.status(400).send("Please fill the entire form!");
+  }
+
+  if (age < 20) {
+    return res
+      .status(400)
+      .send("Sorry, this app was designed to be used by people older than 20!");
+  }
+
+  if (weight < 30 || weight > 300) {
+    return res
+      .status(400)
+      .send("Please, for weight provide a number between 30 and 300kg");
   }
 
   try {
@@ -60,8 +114,10 @@ router.post("/signup", async (req, res) => {
       weight,
       gender,
       exerciseDaily,
+      doctorId,
+      image,
     });
-
+    console.log("newUser", newUser);
     delete newUser.dataValues["password"]; // don't send back the password hash
 
     const token = toJWT({ userId: newUser.id });
@@ -79,8 +135,8 @@ router.post("/signup", async (req, res) => {
 });
 
 //sign up as a doctor
-router.post("/doctorsignup", async (req, res) => {
-  const { email, password, name } = req.body;
+router.post("/signupdoctor", async (req, res) => {
+  const { email, password, name, image } = req.body;
   if (!email || !password || !name) {
     return res.status(400).send("Please provide an email, password and a name");
   }
@@ -90,6 +146,7 @@ router.post("/doctorsignup", async (req, res) => {
       email,
       password: bcrypt.hashSync(password, SALT_ROUNDS),
       name,
+      image,
     });
 
     delete newUser.dataValues["password"]; // don't send back the password hash
@@ -115,6 +172,12 @@ router.get("/me", authMiddleware, async (req, res) => {
   // don't send back the password hash
   delete req.user.dataValues["password"];
   res.status(200).send({ ...req.user.dataValues });
+});
+
+router.get("/meDoctor", doctorAuthMiddleware, async (req, res) => {
+  // don't send back the password hash
+  delete req.doctor.dataValues["password"];
+  res.status(200).send({ ...req.doctor.dataValues });
 });
 
 module.exports = router;

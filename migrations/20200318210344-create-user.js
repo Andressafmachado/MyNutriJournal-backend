@@ -27,7 +27,7 @@ module.exports = {
         allowNull: false,
       },
       height: {
-        type: Sequelize.STRING,
+        type: Sequelize.FLOAT,
         allowNull: false,
       },
       weight: {
@@ -41,6 +41,9 @@ module.exports = {
       exerciseDaily: {
         type: Sequelize.STRING,
         allowNull: false,
+      },
+      image: {
+        type: Sequelize.TEXT,
       },
 
       createdAt: {

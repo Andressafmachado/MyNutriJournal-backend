@@ -21,6 +21,14 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false,
       },
+      image: {
+        type: Sequelize.TEXT,
+      },
+      isDoctor: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
+        allowNull: false,
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
