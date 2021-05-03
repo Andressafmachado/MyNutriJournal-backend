@@ -1,4 +1,4 @@
-# My Nutri Journal
+# My Nutri Journal 🍊
 
 Our mission is to make your live easier, we know that keeping yourself health is not easy, let us help you, tracking your food and activities!
 You can do it by yourself or with your Nutritionist!
@@ -7,7 +7,52 @@ Are you a Nutritionist?
 You are welcome as well, with My Nutri Journal is going to be easier to track your patients and their activities, 
 We keep a historic for all of them!
 
+Check the online version https://mynutrijournal.netlify.app/
 
+## Demo
+
+coming soon
+![userdemo](https://github.com/Andressafmachado/MyNutriJournal-frontend/blob/master/images/user.gif)
+
+## Features
+
+as a User:
+- Sign up and login to get a diet plan
+- add food (counting kcal)
+- add new task
+- check task as completed
+- add comments (for yourself or your nutritionist)
+- check your historic for food/task/comments
+- choose your Nutritionist from database
+
+as a Nutritionist:
+- sign up and login 
+- get all your patients
+- search by patient name
+- check each patient (personal data and diet plan)
+- check historic of each patient (food/comments/tasks)
+- add new tasks
+- check completed tasks
+- add comments for your patient
+
+
+## Goals
+
+
+
+## Tech Stack
+
+**Frontend**
+- React JS
+- Redux
+- Axios
+- Bootstraap
+
+**Backend**
+- Node
+- Express
+- Sequelize
+- PostgreSQL 
 
 ## Links
 
